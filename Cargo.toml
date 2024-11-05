@@ -1,0 +1,8 @@
+[package]
+name = "logsync"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+inotify = "0.7"  # Verifique por atualizações na versão
+

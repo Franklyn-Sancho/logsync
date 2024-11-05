@@ -1,0 +1,58 @@
+Nov  4 17:38:29 franklyn-desktop dockerd[978]: time="2024-11-04T17:38:29.993679805-03:00" level=warning msg="WARNING: bridge-nf-call-iptables is disabled"
+Nov  4 17:38:29 franklyn-desktop dockerd[978]: time="2024-11-04T17:38:29.993708250-03:00" level=warning msg="WARNING: bridge-nf-call-ip6tables is disabled"
+Nov  4 17:40:20 franklyn-desktop cinnamon-session[1467]: WARNING: t+15.58046s: Detected that screensaver has appeared on the bus
+Nov  4 17:40:50 franklyn-desktop cinnamon-session[1467]: WARNING: t+45.59062s: Detected that screensaver has left the bus
+Nov  4 17:41:27 franklyn-desktop cinnamon-session[1467]: WARNING: t+82.22671s: Detected that screensaver has appeared on the bus
+Nov  4 17:42:23 franklyn-desktop cinnamon-session[1467]: WARNING: t+138.32064s: Detected that screensaver has left the bus
+Nov  4 20:16:58 franklyn-desktop cinnamon-session[1467]: WARNING: t+9412.81654s: Detected that screensaver has appeared on the bus
+Nov  4 20:19:43 franklyn-desktop cinnamon-session[1467]: WARNING: t+9578.64860s: Detected that screensaver has left the bus
+Nov  4 21:02:18 franklyn-desktop cinnamon-session[1467]: WARNING: t+12133.23926s: Unable to find desktop file 'MintUpdate.desktop'
+Nov  4 21:02:18 franklyn-desktop cinnamon-session[1467]: WARNING: t+12133.23962s: Unable to find desktop file 'gnome-MintUpdate.desktop'
+Nov  4 21:06:24 franklyn-desktop cinnamon-session[1467]: WARNING: t+12379.46313s: Playing logout sound '/usr/share/mint-artwork/sounds/logout.ogg'
+Nov  4 21:06:28 franklyn-desktop cinnamon-session[1467]: WARNING: t+12383.49460s: Finished playing logout sound
+Nov  4 21:06:28 franklyn-desktop cinnamon-session[1467]: WARNING: t+12383.49471s: Resuming logout sequence...
+Nov  4 21:06:29 franklyn-desktop cinnamon-session[1467]: WARNING: t+12384.35103s: Requesting system shutdown...
+Nov  4 21:06:29 franklyn-desktop cinnamon-session[1467]: WARNING: t+12384.35112s: Attempting to shutdown using systemd...
+Nov  4 21:06:36 franklyn-desktop cinnamon-session[1467]: WARNING: t+12389.98691s: Application 'cinnamon-settings-daemon-color.desktop' killed by signal 1
+Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[860]: WARNING: systemd-networkd is not running, output will be incomplete.
+Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[641]: ERROR:Unknown state for interface NetworkctlListState(idx=1, name='lo', type='loopback', operational='n/a', administrative='unmanaged'): n/a
+Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[641]: ERROR:Unknown state for interface NetworkctlListState(idx=2, name='enp2s0', type='ether', operational='n/a', administrative='unmanaged'): n/a
+Nov  5 08:18:02 franklyn-desktop dockerd[971]: time="2024-11-05T08:18:02.980397463-03:00" level=warning msg="WARNING: bridge-nf-call-iptables is disabled"
+Nov  5 08:18:02 franklyn-desktop dockerd[971]: time="2024-11-05T08:18:02.980427338-03:00" level=warning msg="WARNING: bridge-nf-call-ip6tables is disabled"
+Nov  5 08:26:20 franklyn-desktop cinnamon-session[1567]: WARNING: t+16.73610s: Detected that screensaver has appeared on the bus
+Nov  5 08:26:50 franklyn-desktop cinnamon-session[1567]: WARNING: t+46.75717s: Detected that screensaver has left the bus
+Nov  5 08:30:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+250.51376s: Detected that screensaver has appeared on the bus
+Nov  5 08:31:11 franklyn-desktop cinnamon-session[1567]: WARNING: t+307.88436s: Detected that screensaver has left the bus
+Nov  5 10:41:32 franklyn-desktop cinnamon-session[1567]: WARNING: t+8129.16722s: Detected that screensaver has appeared on the bus
+Nov  5 10:59:53 franklyn-desktop cinnamon-session[1567]: WARNING: t+9229.73630s: Detected that screensaver has left the bus
+Nov  5 13:23:31 franklyn-desktop cinnamon-session[1567]: WARNING: t+17847.74561s: Detected that screensaver has appeared on the bus
+Nov  5 13:49:56 franklyn-desktop cinnamon-session[1567]: WARNING: t+19432.57246s: Detected that screensaver has left the bus
+Nov  4 17:38:29 franklyn-desktop dockerd[978]: time="2024-11-04T17:38:29.993679805-03:00" level=warning msg="WARNING: bridge-nf-call-iptables is disabled"
+Nov  4 17:38:29 franklyn-desktop dockerd[978]: time="2024-11-04T17:38:29.993708250-03:00" level=warning msg="WARNING: bridge-nf-call-ip6tables is disabled"
+Nov  4 17:40:20 franklyn-desktop cinnamon-session[1467]: WARNING: t+15.58046s: Detected that screensaver has appeared on the bus
+Nov  4 17:40:50 franklyn-desktop cinnamon-session[1467]: WARNING: t+45.59062s: Detected that screensaver has left the bus
+Nov  4 17:41:27 franklyn-desktop cinnamon-session[1467]: WARNING: t+82.22671s: Detected that screensaver has appeared on the bus
+Nov  4 17:42:23 franklyn-desktop cinnamon-session[1467]: WARNING: t+138.32064s: Detected that screensaver has left the bus
+Nov  4 20:16:58 franklyn-desktop cinnamon-session[1467]: WARNING: t+9412.81654s: Detected that screensaver has appeared on the bus
+Nov  4 20:19:43 franklyn-desktop cinnamon-session[1467]: WARNING: t+9578.64860s: Detected that screensaver has left the bus
+Nov  4 21:02:18 franklyn-desktop cinnamon-session[1467]: WARNING: t+12133.23926s: Unable to find desktop file 'MintUpdate.desktop'
+Nov  4 21:02:18 franklyn-desktop cinnamon-session[1467]: WARNING: t+12133.23962s: Unable to find desktop file 'gnome-MintUpdate.desktop'
+Nov  4 21:06:24 franklyn-desktop cinnamon-session[1467]: WARNING: t+12379.46313s: Playing logout sound '/usr/share/mint-artwork/sounds/logout.ogg'
+Nov  4 21:06:28 franklyn-desktop cinnamon-session[1467]: WARNING: t+12383.49460s: Finished playing logout sound
+Nov  4 21:06:28 franklyn-desktop cinnamon-session[1467]: WARNING: t+12383.49471s: Resuming logout sequence...
+Nov  4 21:06:29 franklyn-desktop cinnamon-session[1467]: WARNING: t+12384.35103s: Requesting system shutdown...
+Nov  4 21:06:29 franklyn-desktop cinnamon-session[1467]: WARNING: t+12384.35112s: Attempting to shutdown using systemd...
+Nov  4 21:06:36 franklyn-desktop cinnamon-session[1467]: WARNING: t+12389.98691s: Application 'cinnamon-settings-daemon-color.desktop' killed by signal 1
+Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[860]: WARNING: systemd-networkd is not running, output will be incomplete.
+Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[641]: ERROR:Unknown state for interface NetworkctlListState(idx=1, name='lo', type='loopback', operational='n/a', administrative='unmanaged'): n/a
+Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[641]: ERROR:Unknown state for interface NetworkctlListState(idx=2, name='enp2s0', type='ether', operational='n/a', administrative='unmanaged'): n/a
+Nov  5 08:18:02 franklyn-desktop dockerd[971]: time="2024-11-05T08:18:02.980397463-03:00" level=warning msg="WARNING: bridge-nf-call-iptables is disabled"
+Nov  5 08:18:02 franklyn-desktop dockerd[971]: time="2024-11-05T08:18:02.980427338-03:00" level=warning msg="WARNING: bridge-nf-call-ip6tables is disabled"
+Nov  5 08:26:20 franklyn-desktop cinnamon-session[1567]: WARNING: t+16.73610s: Detected that screensaver has appeared on the bus
+Nov  5 08:26:50 franklyn-desktop cinnamon-session[1567]: WARNING: t+46.75717s: Detected that screensaver has left the bus
+Nov  5 08:30:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+250.51376s: Detected that screensaver has appeared on the bus
+Nov  5 08:31:11 franklyn-desktop cinnamon-session[1567]: WARNING: t+307.88436s: Detected that screensaver has left the bus
+Nov  5 10:41:32 franklyn-desktop cinnamon-session[1567]: WARNING: t+8129.16722s: Detected that screensaver has appeared on the bus
+Nov  5 10:59:53 franklyn-desktop cinnamon-session[1567]: WARNING: t+9229.73630s: Detected that screensaver has left the bus
+Nov  5 13:23:31 franklyn-desktop cinnamon-session[1567]: WARNING: t+17847.74561s: Detected that screensaver has appeared on the bus
+Nov  5 13:49:56 franklyn-desktop cinnamon-session[1567]: WARNING: t+19432.57246s: Detected that screensaver has left the bus
