@@ -1,4 +1,4 @@
-# LOGSYNC - LOG SYNC APPLICATION IN RUST 
+# LogSync - Log Sync Application in Rust 
 
 LogSync is a Rust application that monitors system log files in real-time, filtering and recording only error and warning messages. Designed to help users quickly identify and resolve issues, it enables easy access to relevant logs, even on mobile devices. Future features will include automatic integration with Google Drive for log backup.
 
