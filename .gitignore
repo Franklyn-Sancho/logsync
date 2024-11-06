@@ -1,4 +1,5 @@
 /target
 client_secret.json
 tokencache.json
+.env
 

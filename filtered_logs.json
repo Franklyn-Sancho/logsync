@@ -1,0 +1,240 @@
+{"message":"Nov  4 17:38:29 franklyn-desktop dockerd[978]: time=\"2024-11-04T17:38:29.993679805-03:00\" level=warning msg=\"WARNING: bridge-nf-call-iptables is disabled\"","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 17:38:29 franklyn-desktop dockerd[978]: time=\"2024-11-04T17:38:29.993708250-03:00\" level=warning msg=\"WARNING: bridge-nf-call-ip6tables is disabled\"","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 17:40:20 franklyn-desktop cinnamon-session[1467]: WARNING: t+15.58046s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 17:40:50 franklyn-desktop cinnamon-session[1467]: WARNING: t+45.59062s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 17:41:27 franklyn-desktop cinnamon-session[1467]: WARNING: t+82.22671s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 17:42:23 franklyn-desktop cinnamon-session[1467]: WARNING: t+138.32064s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 20:16:58 franklyn-desktop cinnamon-session[1467]: WARNING: t+9412.81654s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 20:19:43 franklyn-desktop cinnamon-session[1467]: WARNING: t+9578.64860s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 21:02:18 franklyn-desktop cinnamon-session[1467]: WARNING: t+12133.23926s: Unable to find desktop file 'MintUpdate.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 21:02:18 franklyn-desktop cinnamon-session[1467]: WARNING: t+12133.23962s: Unable to find desktop file 'gnome-MintUpdate.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 21:06:24 franklyn-desktop cinnamon-session[1467]: WARNING: t+12379.46313s: Playing logout sound '/usr/share/mint-artwork/sounds/logout.ogg'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 21:06:28 franklyn-desktop cinnamon-session[1467]: WARNING: t+12383.49460s: Finished playing logout sound","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 21:06:28 franklyn-desktop cinnamon-session[1467]: WARNING: t+12383.49471s: Resuming logout sequence...","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 21:06:29 franklyn-desktop cinnamon-session[1467]: WARNING: t+12384.35103s: Requesting system shutdown...","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 21:06:29 franklyn-desktop cinnamon-session[1467]: WARNING: t+12384.35112s: Attempting to shutdown using systemd...","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  4 21:06:36 franklyn-desktop cinnamon-session[1467]: WARNING: t+12389.98691s: Application 'cinnamon-settings-daemon-color.desktop' killed by signal 1","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[860]: WARNING: systemd-networkd is not running, output will be incomplete.","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[641]: ERROR:Unknown state for interface NetworkctlListState(idx=1, name='lo', type='loopback', operational='n/a', administrative='unmanaged'): n/a","priority":"medium","timestamp":1730934826,"type":"ERROR"}
+{"message":"Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[641]: ERROR:Unknown state for interface NetworkctlListState(idx=2, name='enp2s0', type='ether', operational='n/a', administrative='unmanaged'): n/a","priority":"medium","timestamp":1730934826,"type":"ERROR"}
+{"message":"Nov  5 08:18:02 franklyn-desktop dockerd[971]: time=\"2024-11-05T08:18:02.980397463-03:00\" level=warning msg=\"WARNING: bridge-nf-call-iptables is disabled\"","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 08:18:02 franklyn-desktop dockerd[971]: time=\"2024-11-05T08:18:02.980427338-03:00\" level=warning msg=\"WARNING: bridge-nf-call-ip6tables is disabled\"","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 08:26:20 franklyn-desktop cinnamon-session[1567]: WARNING: t+16.73610s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 08:26:50 franklyn-desktop cinnamon-session[1567]: WARNING: t+46.75717s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 08:30:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+250.51376s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 08:31:11 franklyn-desktop cinnamon-session[1567]: WARNING: t+307.88436s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 10:41:32 franklyn-desktop cinnamon-session[1567]: WARNING: t+8129.16722s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 10:59:53 franklyn-desktop cinnamon-session[1567]: WARNING: t+9229.73630s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 13:23:31 franklyn-desktop cinnamon-session[1567]: WARNING: t+17847.74561s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 13:49:56 franklyn-desktop cinnamon-session[1567]: WARNING: t+19432.57246s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 16:00:20 franklyn-desktop cinnamon-session[1567]: WARNING: t+27257.05344s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 16:33:45 franklyn-desktop cinnamon-session[1567]: WARNING: t+29262.46363s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 17:14:05 franklyn-desktop franklyn: ERROR: Simulated error message for testing","priority":"medium","timestamp":1730934826,"type":"ERROR"}
+{"message":"Nov  5 17:14:05 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 17:14:16 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 17:21:46 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 17:21:54 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 17:22:19 franklyn-desktop franklyn: ERROR: Simulated error message for testing","priority":"medium","timestamp":1730934826,"type":"ERROR"}
+{"message":"Nov  5 17:54:05 franklyn-desktop cinnamon-session[1567]: WARNING: t+34081.85923s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 18:10:57 franklyn-desktop cinnamon-session[1567]: WARNING: t+35093.82711s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 18:43:38 franklyn-desktop franklyn: ERROR: Simulated error message for testing","priority":"medium","timestamp":1730934826,"type":"ERROR"}
+{"message":"Nov  5 18:43:44 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 18:57:49 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 19:29:08 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 19:29:34 franklyn-desktop franklyn: message repeated 2 times: [ WARNING: Simulated warning message for testing]","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 19:29:42 franklyn-desktop franklyn: ERROR: Simulated error message for testing","priority":"medium","timestamp":1730934826,"type":"ERROR"}
+{"message":"Nov  5 20:06:59 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.17970s: Client '/org/gnome/SessionManager/Client13' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:05 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18003s: Client '/org/gnome/SessionManager/Client10' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:05 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18014s: Client '/org/gnome/SessionManager/Client1' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18026s: Client '/org/gnome/SessionManager/Client23' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18035s: Client '/org/gnome/SessionManager/Client20' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18044s: Client '/org/gnome/SessionManager/Client18' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18053s: Client '/org/gnome/SessionManager/Client9' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18084s: Client '/org/gnome/SessionManager/Client15' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18094s: Client '/org/gnome/SessionManager/Client22' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18103s: Client '/org/gnome/SessionManager/Client14' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:07 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18112s: Client '/org/gnome/SessionManager/Client11' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:07 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18121s: Client '/org/gnome/SessionManager/Client2' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:07 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18130s: Client '/org/gnome/SessionManager/Client19' failed to reply before timeout","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:08 franklyn-desktop cinnamon-session[1567]: WARNING: t+42060.49278s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:08 franklyn-desktop cinnamon-session[1567]: WARNING: t+42060.49316s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:08 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.10620s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:08 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.10668s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.12865s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.12896s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.13536s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.13559s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.14142s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:10 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.14167s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:10 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.14421s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:11 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.14829s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:11 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.15138s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:12 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.15494s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16048s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16073s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16254s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16305s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16458s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16475s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16693s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16711s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:14 franklyn-desktop cinnamon-session[1567]: WARNING: t+42065.35346s: Playing logout sound '/usr/share/mint-artwork/sounds/logout.ogg'","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:17 franklyn-desktop cinnamon-session[1567]: WARNING: t+42073.76267s: Finished playing logout sound","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:17 franklyn-desktop cinnamon-session[1567]: WARNING: t+42073.76318s: Resuming logout sequence...","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:18 franklyn-desktop cinnamon-session[1567]: WARNING: t+42074.59376s: Requesting system shutdown...","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  5 20:07:18 franklyn-desktop cinnamon-session[1567]: WARNING: t+42074.59388s: Attempting to shutdown using systemd...","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 08:39:05 franklyn-desktop networkd-dispatcher[842]: WARNING: systemd-networkd is not running, output will be incomplete.","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 08:39:05 franklyn-desktop networkd-dispatcher[644]: ERROR:Unknown state for interface NetworkctlListState(idx=1, name='lo', type='loopback', operational='n/a', administrative='unmanaged'): n/a","priority":"medium","timestamp":1730934826,"type":"ERROR"}
+{"message":"Nov  6 08:39:05 franklyn-desktop networkd-dispatcher[644]: ERROR:Unknown state for interface NetworkctlListState(idx=2, name='enp2s0', type='ether', operational='n/a', administrative='unmanaged'): n/a","priority":"medium","timestamp":1730934826,"type":"ERROR"}
+{"message":"Nov  6 08:39:52 franklyn-desktop dockerd[969]: time=\"2024-11-06T08:39:52.535082721-03:00\" level=warning msg=\"WARNING: bridge-nf-call-iptables is disabled\"","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 08:39:52 franklyn-desktop dockerd[969]: time=\"2024-11-06T08:39:52.535124726-03:00\" level=warning msg=\"WARNING: bridge-nf-call-ip6tables is disabled\"","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 08:42:06 franklyn-desktop cinnamon-session[1462]: WARNING: t+15.23034s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 08:42:36 franklyn-desktop cinnamon-session[1462]: WARNING: t+45.24612s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 08:51:35 franklyn-desktop cinnamon-session[1462]: WARNING: t+584.21966s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 08:52:31 franklyn-desktop cinnamon-session[1462]: WARNING: t+640.96703s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 09:06:20 franklyn-desktop cinnamon-session[1462]: WARNING: t+1469.88261s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 09:27:27 franklyn-desktop cinnamon-session[1462]: WARNING: t+2736.81158s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 09:47:40 franklyn-desktop cinnamon-session[1462]: WARNING: t+3949.21104s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 10:09:22 franklyn-desktop cinnamon-session[1462]: WARNING: t+5251.65257s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934826,"type":"WARNING"}
+{"message":"Nov  6 12:16:44 franklyn-desktop cinnamon-session[1462]: WARNING: t+12893.27310s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934827,"type":"WARNING"}
+{"message":"Nov  6 13:19:20 franklyn-desktop cinnamon-session[1462]: WARNING: t+16649.10778s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934827,"type":"WARNING"}
+{"message":"Nov  6 14:53:46 franklyn-desktop franklyn: ERROR: Test error message for JSON logging","priority":"medium","timestamp":1730934827,"type":"ERROR"}
+{"message":"Nov  6 14:53:46 franklyn-desktop franklyn: WARN: Test warning message for JSON logging","priority":"low","timestamp":1730934827,"type":"WARNING"}
+{"message":"Nov  6 16:09:36 franklyn-desktop cinnamon-session[1462]: WARNING: t+26865.99909s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934827,"type":"WARNING"}
+{"message":"Nov  6 16:18:28 franklyn-desktop cinnamon-session[1462]: WARNING: t+27397.98303s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934827,"type":"WARNING"}
+{"message":"Nov  6 17:22:36 franklyn-desktop franklyn: CRITICAL: Test critical message for JSON logging","priority":"high","timestamp":1730934827,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934828,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test warning message for JSON logging","priority":"high","timestamp":1730934829,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:34 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934830,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:58 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934831,"type":"CRITICAL"}
+{"message":"Nov  6 18:45:35 franklyn-desktop franklyn: CRITICAL ERROR: Test error message for JSON logging","priority":"high","timestamp":1730934832,"type":"CRITICAL"}
+{"message":"Nov  6 18:48:18 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934832,"type":"CRITICAL"}
+{"message":"Nov  6 18:54:06 franklyn-desktop touchegg[652]: libinput error: event2  - SIGMACHIP USB Keyboard: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.","priority":"low","timestamp":1730934832,"type":"WARNING"}
+{"message":"Nov  6 19:04:17 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934833,"type":"CRITICAL"}
+{"message":"Nov  6 19:08:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934834,"type":"CRITICAL"}
+{"message":"Nov  6 19:10:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934835,"type":"CRITICAL"}
+{"message":"Nov  6 19:31:32 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934836,"type":"CRITICAL"}
+{"message":"Nov  6 19:35:57 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934836,"type":"CRITICAL"}
+{"message":"Nov  6 20:02:21 franklyn-desktop cinnamon-session[1462]: WARNING: t+40831.01295s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730934836,"type":"WARNING"}
+{"message":"Nov  6 20:07:19 franklyn-desktop cinnamon-session[1462]: WARNING: t+41128.52357s: Detected that screensaver has left the bus","priority":"low","timestamp":1730934836,"type":"WARNING"}
+{"message":"Nov  6 20:13:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730934837,"type":"CRITICAL"}
+{"message":"Nov  4 17:38:29 franklyn-desktop dockerd[978]: time=\"2024-11-04T17:38:29.993679805-03:00\" level=warning msg=\"WARNING: bridge-nf-call-iptables is disabled\"","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 17:38:29 franklyn-desktop dockerd[978]: time=\"2024-11-04T17:38:29.993708250-03:00\" level=warning msg=\"WARNING: bridge-nf-call-ip6tables is disabled\"","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 17:40:20 franklyn-desktop cinnamon-session[1467]: WARNING: t+15.58046s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 17:40:50 franklyn-desktop cinnamon-session[1467]: WARNING: t+45.59062s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 17:41:27 franklyn-desktop cinnamon-session[1467]: WARNING: t+82.22671s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 17:42:23 franklyn-desktop cinnamon-session[1467]: WARNING: t+138.32064s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 20:16:58 franklyn-desktop cinnamon-session[1467]: WARNING: t+9412.81654s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 20:19:43 franklyn-desktop cinnamon-session[1467]: WARNING: t+9578.64860s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 21:02:18 franklyn-desktop cinnamon-session[1467]: WARNING: t+12133.23926s: Unable to find desktop file 'MintUpdate.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 21:02:18 franklyn-desktop cinnamon-session[1467]: WARNING: t+12133.23962s: Unable to find desktop file 'gnome-MintUpdate.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 21:06:24 franklyn-desktop cinnamon-session[1467]: WARNING: t+12379.46313s: Playing logout sound '/usr/share/mint-artwork/sounds/logout.ogg'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 21:06:28 franklyn-desktop cinnamon-session[1467]: WARNING: t+12383.49460s: Finished playing logout sound","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 21:06:28 franklyn-desktop cinnamon-session[1467]: WARNING: t+12383.49471s: Resuming logout sequence...","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 21:06:29 franklyn-desktop cinnamon-session[1467]: WARNING: t+12384.35103s: Requesting system shutdown...","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 21:06:29 franklyn-desktop cinnamon-session[1467]: WARNING: t+12384.35112s: Attempting to shutdown using systemd...","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  4 21:06:36 franklyn-desktop cinnamon-session[1467]: WARNING: t+12389.98691s: Application 'cinnamon-settings-daemon-color.desktop' killed by signal 1","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[860]: WARNING: systemd-networkd is not running, output will be incomplete.","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[641]: ERROR:Unknown state for interface NetworkctlListState(idx=1, name='lo', type='loopback', operational='n/a', administrative='unmanaged'): n/a","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  5 08:17:21 franklyn-desktop networkd-dispatcher[641]: ERROR:Unknown state for interface NetworkctlListState(idx=2, name='enp2s0', type='ether', operational='n/a', administrative='unmanaged'): n/a","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  5 08:18:02 franklyn-desktop dockerd[971]: time=\"2024-11-05T08:18:02.980397463-03:00\" level=warning msg=\"WARNING: bridge-nf-call-iptables is disabled\"","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 08:18:02 franklyn-desktop dockerd[971]: time=\"2024-11-05T08:18:02.980427338-03:00\" level=warning msg=\"WARNING: bridge-nf-call-ip6tables is disabled\"","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 08:26:20 franklyn-desktop cinnamon-session[1567]: WARNING: t+16.73610s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 08:26:50 franklyn-desktop cinnamon-session[1567]: WARNING: t+46.75717s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 08:30:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+250.51376s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 08:31:11 franklyn-desktop cinnamon-session[1567]: WARNING: t+307.88436s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 10:41:32 franklyn-desktop cinnamon-session[1567]: WARNING: t+8129.16722s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 10:59:53 franklyn-desktop cinnamon-session[1567]: WARNING: t+9229.73630s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 13:23:31 franklyn-desktop cinnamon-session[1567]: WARNING: t+17847.74561s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 13:49:56 franklyn-desktop cinnamon-session[1567]: WARNING: t+19432.57246s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 16:00:20 franklyn-desktop cinnamon-session[1567]: WARNING: t+27257.05344s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 16:33:45 franklyn-desktop cinnamon-session[1567]: WARNING: t+29262.46363s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 17:14:05 franklyn-desktop franklyn: ERROR: Simulated error message for testing","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  5 17:14:05 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 17:14:16 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 17:21:46 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 17:21:54 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 17:22:19 franklyn-desktop franklyn: ERROR: Simulated error message for testing","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  5 17:54:05 franklyn-desktop cinnamon-session[1567]: WARNING: t+34081.85923s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 18:10:57 franklyn-desktop cinnamon-session[1567]: WARNING: t+35093.82711s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 18:43:38 franklyn-desktop franklyn: ERROR: Simulated error message for testing","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  5 18:43:44 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 18:57:49 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 19:29:08 franklyn-desktop franklyn: WARNING: Simulated warning message for testing","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 19:29:34 franklyn-desktop franklyn: message repeated 2 times: [ WARNING: Simulated warning message for testing]","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 19:29:42 franklyn-desktop franklyn: ERROR: Simulated error message for testing","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  5 20:06:59 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.17970s: Client '/org/gnome/SessionManager/Client13' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:05 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18003s: Client '/org/gnome/SessionManager/Client10' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:05 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18014s: Client '/org/gnome/SessionManager/Client1' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18026s: Client '/org/gnome/SessionManager/Client23' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18035s: Client '/org/gnome/SessionManager/Client20' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18044s: Client '/org/gnome/SessionManager/Client18' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18053s: Client '/org/gnome/SessionManager/Client9' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18084s: Client '/org/gnome/SessionManager/Client15' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18094s: Client '/org/gnome/SessionManager/Client22' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:06 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18103s: Client '/org/gnome/SessionManager/Client14' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:07 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18112s: Client '/org/gnome/SessionManager/Client11' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:07 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18121s: Client '/org/gnome/SessionManager/Client2' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:07 franklyn-desktop cinnamon-session[1567]: WARNING: t+42056.18130s: Client '/org/gnome/SessionManager/Client19' failed to reply before timeout","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:08 franklyn-desktop cinnamon-session[1567]: WARNING: t+42060.49278s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:08 franklyn-desktop cinnamon-session[1567]: WARNING: t+42060.49316s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:08 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.10620s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:08 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.10668s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.12865s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.12896s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.13536s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.13559s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:09 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.14142s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:10 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.14167s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:10 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.14421s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:11 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.14829s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:11 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.15138s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:12 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.15494s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16048s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16073s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16254s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16305s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16458s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16475s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16693s: Unable to find desktop file 'csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:13 franklyn-desktop cinnamon-session[1567]: WARNING: t+42061.16711s: Unable to find desktop file 'gnome-csd-printer.desktop'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:14 franklyn-desktop cinnamon-session[1567]: WARNING: t+42065.35346s: Playing logout sound '/usr/share/mint-artwork/sounds/logout.ogg'","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:17 franklyn-desktop cinnamon-session[1567]: WARNING: t+42073.76267s: Finished playing logout sound","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:17 franklyn-desktop cinnamon-session[1567]: WARNING: t+42073.76318s: Resuming logout sequence...","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:18 franklyn-desktop cinnamon-session[1567]: WARNING: t+42074.59376s: Requesting system shutdown...","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  5 20:07:18 franklyn-desktop cinnamon-session[1567]: WARNING: t+42074.59388s: Attempting to shutdown using systemd...","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 08:39:05 franklyn-desktop networkd-dispatcher[842]: WARNING: systemd-networkd is not running, output will be incomplete.","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 08:39:05 franklyn-desktop networkd-dispatcher[644]: ERROR:Unknown state for interface NetworkctlListState(idx=1, name='lo', type='loopback', operational='n/a', administrative='unmanaged'): n/a","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  6 08:39:05 franklyn-desktop networkd-dispatcher[644]: ERROR:Unknown state for interface NetworkctlListState(idx=2, name='enp2s0', type='ether', operational='n/a', administrative='unmanaged'): n/a","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  6 08:39:52 franklyn-desktop dockerd[969]: time=\"2024-11-06T08:39:52.535082721-03:00\" level=warning msg=\"WARNING: bridge-nf-call-iptables is disabled\"","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 08:39:52 franklyn-desktop dockerd[969]: time=\"2024-11-06T08:39:52.535124726-03:00\" level=warning msg=\"WARNING: bridge-nf-call-ip6tables is disabled\"","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 08:42:06 franklyn-desktop cinnamon-session[1462]: WARNING: t+15.23034s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 08:42:36 franklyn-desktop cinnamon-session[1462]: WARNING: t+45.24612s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 08:51:35 franklyn-desktop cinnamon-session[1462]: WARNING: t+584.21966s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 08:52:31 franklyn-desktop cinnamon-session[1462]: WARNING: t+640.96703s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 09:06:20 franklyn-desktop cinnamon-session[1462]: WARNING: t+1469.88261s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 09:27:27 franklyn-desktop cinnamon-session[1462]: WARNING: t+2736.81158s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 09:47:40 franklyn-desktop cinnamon-session[1462]: WARNING: t+3949.21104s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 10:09:22 franklyn-desktop cinnamon-session[1462]: WARNING: t+5251.65257s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 12:16:44 franklyn-desktop cinnamon-session[1462]: WARNING: t+12893.27310s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 13:19:20 franklyn-desktop cinnamon-session[1462]: WARNING: t+16649.10778s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 14:53:46 franklyn-desktop franklyn: ERROR: Test error message for JSON logging","priority":"medium","timestamp":1730935369,"type":"ERROR"}
+{"message":"Nov  6 14:53:46 franklyn-desktop franklyn: WARN: Test warning message for JSON logging","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 16:09:36 franklyn-desktop cinnamon-session[1462]: WARNING: t+26865.99909s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 16:18:28 franklyn-desktop cinnamon-session[1462]: WARNING: t+27397.98303s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935369,"type":"WARNING"}
+{"message":"Nov  6 17:22:36 franklyn-desktop franklyn: CRITICAL: Test critical message for JSON logging","priority":"high","timestamp":1730935370,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935371,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test warning message for JSON logging","priority":"high","timestamp":1730935372,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:34 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935373,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:58 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935373,"type":"CRITICAL"}
+{"message":"Nov  6 18:45:35 franklyn-desktop franklyn: CRITICAL ERROR: Test error message for JSON logging","priority":"high","timestamp":1730935374,"type":"CRITICAL"}
+{"message":"Nov  6 18:48:18 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935375,"type":"CRITICAL"}
+{"message":"Nov  6 18:54:06 franklyn-desktop touchegg[652]: libinput error: event2  - SIGMACHIP USB Keyboard: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.","priority":"low","timestamp":1730935375,"type":"WARNING"}
+{"message":"Nov  6 19:04:17 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935376,"type":"CRITICAL"}
+{"message":"Nov  6 19:08:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935377,"type":"CRITICAL"}
+{"message":"Nov  6 19:10:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935377,"type":"CRITICAL"}
+{"message":"Nov  6 19:31:32 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935378,"type":"CRITICAL"}
+{"message":"Nov  6 19:35:57 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935379,"type":"CRITICAL"}
+{"message":"Nov  6 20:02:21 franklyn-desktop cinnamon-session[1462]: WARNING: t+40831.01295s: Detected that screensaver has appeared on the bus","priority":"low","timestamp":1730935379,"type":"WARNING"}
+{"message":"Nov  6 20:07:19 franklyn-desktop cinnamon-session[1462]: WARNING: t+41128.52357s: Detected that screensaver has left the bus","priority":"low","timestamp":1730935379,"type":"WARNING"}
+{"message":"Nov  6 20:13:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1730935380,"type":"CRITICAL"}

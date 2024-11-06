@@ -1,94 +1,142 @@
-use std::fs::{self, File as StdFile, OpenOptions};
-use std::io::{self, BufRead, BufReader, Cursor, Read};
-use std::path::Path;
+use dotenv::dotenv;
+use google_drive3::api::File;
 use google_drive3::DriveHub;
-use tokio::time::{self, Duration};
 use hyper_tls::HttpsConnector;
 use hyper_util::client::legacy::connect::HttpConnector;
-use google_drive3::api::File;
+use reqwest::Client;
+use serde_json::{json, Value};
+use std::env;
+use std::fs::{self, File as StdFile, OpenOptions};
 use std::io::Write;
+use std::io::{self, BufRead, BufReader, Cursor, Read};
+use std::path::Path;
+use std::time::{SystemTime, UNIX_EPOCH};
+use tokio::time::{self, Duration};
+
+use crate::notifier::send_telegram_alert;
+use crate::utils::{ensure_file_exists, read_file_to_buffer};
 
 
-use inotify::{Inotify, WatchMask};
+// Function that monitors system log for updates and filters relevant logs for upload
+pub async fn monitor_and_log_to_json(
+    log_file_path: &str,
+    hub: &DriveHub<HttpsConnector<HttpConnector>>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    // Initialize file monitoring with inotify
+    let mut inotify = inotify::Inotify::init()?;
+    inotify.add_watch("/var/log/syslog", inotify::WatchMask::MODIFY)?;
 
-pub async fn upload_file(hub: &DriveHub<HttpsConnector<HttpConnector>>, file_path: &str) -> Result<File, Box<dyn std::error::Error>> {
-    // Assegura que o arquivo de log existe antes de tentar carregá-lo
-    ensure_log_file_exists(file_path)?;
-
-    // Abre o arquivo local
-    let mut file = StdFile::open(file_path)?;
-    let mut buffer = Vec::new();
-    file.read_to_end(&mut buffer)?; // Lê o arquivo inteiro no buffer
-
-    // Cria um Cursor para permitir a leitura do buffer
-    let cursor = Cursor::new(buffer);
-
-    // Determina o tipo MIME do arquivo
-    let mime_type = mime_guess::from_path(file_path).first_or_octet_stream();
-
-    // Prepara os metadados do arquivo para o Google Drive
-    let drive_file = File {
-        name: Some(Path::new(file_path).file_name().unwrap().to_string_lossy().to_string()), // Apenas o nome do arquivo
-        mime_type: Some(mime_type.to_string()),
-        ..Default::default()
-    };
-
-    // Faz o upload do arquivo usando o Cursor e o tipo MIME
-    let (_, uploaded_file) = hub.files().create(drive_file)
-        .upload(cursor, mime_type)
-        .await?;
-
-    Ok(uploaded_file) // Retorna o arquivo carregado
-}
-
-pub async fn monitor_and_upload(log_file_path: &str, hub: DriveHub<HttpsConnector<HttpConnector>>) -> Result<(), Box<dyn std::error::Error>> {
-    let mut inotify = Inotify::init()?;
-    inotify.add_watch("/var/log/syslog", WatchMask::MODIFY)?;
-
-    // Garantindo que `filtered_logs.txt` existe ou criando-o
-    let mut output_file = OpenOptions::new().append(true).create(true).open(log_file_path)?;
+    // Open log file for appending filtered logs
+    let mut output_file = OpenOptions::new()
+        .append(true)
+        .create(true)
+        .open(log_file_path)?;
 
     loop {
+        // Buffer to read inotify events
         let mut buffer = [0; 1024];
         let events = inotify.read_events_blocking(&mut buffer)?;
 
+        // Iterate over events
         for event in events {
+            // If the file was modified, process it
             if event.mask.contains(inotify::EventMask::MODIFY) {
-                // Abrindo o log do sistema para leitura
                 let file = StdFile::open("/var/log/syslog")?;
                 let reader = BufReader::new(file);
 
-                // Filtrando as linhas que contêm "ERROR" ou "WARN"
-                let mut has_relevant_logs = false;
+                // Filter logs and convert to JSON format
+                let mut filtered_logs = Vec::new();
                 for line in reader.lines() {
-                    let line = line?;
-                    if line.contains("ERROR") || line.contains("WARN") {
-                        writeln!(output_file, "{}", line)?;
-                        has_relevant_logs = true;
+                    if let Ok(line) = line {
+                        if let Some(log_json) = log_to_json_and_alert(&line).await {
+                            filtered_logs.push(log_json);
+                        }
                     }
                 }
 
-                // Se encontrou logs relevantes, faz o upload
-                if has_relevant_logs {
+                // If filtered logs exist, write them to the output file and upload
+                if !filtered_logs.is_empty() {
+                    for log in &filtered_logs {
+                        writeln!(output_file, "{}", log.to_string())?;
+                    }
                     output_file.flush()?;
-                    match upload_file(&hub, log_file_path).await {
-                        Ok(uploaded_file) => println!("Uploaded file: {:?}", uploaded_file),
-                        Err(e) => eprintln!("Error uploading file: {}", e),
+
+                    // Upload the updated log file to Google Drive
+                    if let Err(e) = upload_file(hub, log_file_path).await {
+                        eprintln!("Error uploading file: {}", e);
                     }
                 }
             }
         }
 
-        // Pausa curta para evitar uso excessivo de CPU
-        time::sleep(Duration::from_millis(100)).await;
+        // Sleep to avoid high CPU usage
+        time::sleep(std::time::Duration::from_millis(100)).await;
     }
 }
 
-pub fn ensure_log_file_exists(file_path: &str) -> io::Result<()> {
-    if !Path::new(file_path).exists() {
-        // Cria o arquivo vazio se ele não existir
-        let mut file = StdFile::create(file_path)?;
-        writeln!(file, "")?; // Escreve uma linha vazia para criar o arquivo
+// Function that converts the log line to JSON and sends alerts if necessary
+pub async fn log_to_json_and_alert(line: &str) -> Option<serde_json::Value> {
+    // Determine log type and priority based on the content
+    let (log_type, priority) = if line.contains("CRITICAL") {
+        ("CRITICAL", "high")
+    } else if line.contains("ERROR") {
+        ("ERROR", "medium")
+    } else if line.contains("WARN") {
+        ("WARNING", "low")
+    } else {
+        return None;
+    };
+
+    // Send a critical error alert if applicable
+    if log_type == "CRITICAL" {
+        let message = format!("Critical Error Detected: {}", line);
+        match send_telegram_alert(&message).await {
+            Ok(_) => println!("Critical error alert sent successfully!"),
+            Err(e) => eprintln!("Error sending critical error alert: {}", e),
+        }
     }
-    Ok(())
+
+    // Return the log in JSON format
+    Some(json!({
+        "timestamp": SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs(),
+        "type": log_type,
+        "message": line.trim(),
+        "priority": priority
+    }))
+}
+
+// Function that uploads the log file to Google Drive
+pub async fn upload_file(
+    hub: &DriveHub<HttpsConnector<HttpConnector>>,
+    file_path: &str,
+) -> Result<File, Box<dyn std::error::Error>> {
+    // Ensure the file exists
+    ensure_file_exists(file_path)?;
+
+    // Read the file content into a buffer
+    let buffer = read_file_to_buffer(file_path)?;
+    let cursor = std::io::Cursor::new(buffer);
+    let mime_type = mime_guess::from_path(file_path).first_or_octet_stream();
+
+    // Prepare metadata for the Google Drive file
+    let drive_file = File {
+        name: Some(
+            Path::new(file_path)
+                .file_name()
+                .unwrap()
+                .to_string_lossy()
+                .to_string(),
+        ),
+        mime_type: Some(mime_type.to_string()),
+        ..Default::default()
+    };
+
+    // Upload the file to Google Drive
+    let (_, uploaded_file) = hub
+        .files()
+        .create(drive_file)
+        .upload(cursor, mime_type)
+        .await?;
+
+    Ok(uploaded_file)
 }
