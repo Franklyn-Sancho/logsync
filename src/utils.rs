@@ -1,8 +1,8 @@
-use std::fs::{File as StdFile};
+use std::fs::File as StdFile;
 use std::io::{self, Read, Write};
 use std::path::Path;
 
-use chrono::{NaiveDateTime, Utc};
+use chrono::NaiveDateTime;
 
 pub fn format_timestamp(timestamp: u64) -> String {
     // Converte o timestamp Unix para NaiveDateTime

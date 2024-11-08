@@ -1,13 +1,13 @@
-use dotenv::dotenv;
+
 use google_drive3::api::File;
 use google_drive3::DriveHub;
 use hyper_tls::HttpsConnector;
 use hyper_util::client::legacy::connect::HttpConnector;
 use inotify::{EventMask, Inotify, WatchMask};
-use serde_json::{json, Value};
-use std::fs::{self, File as StdFile, OpenOptions};
+use serde_json::json;
+use std::fs::{File as StdFile, OpenOptions};
 use std::io::Write;
-use std::io::{self, BufRead, BufReader, Cursor, Read};
+use std::io::{BufRead, BufReader};
 use std::path::Path;
 use std::time::{SystemTime, UNIX_EPOCH};
 use tokio::time::{self, Duration};
@@ -17,36 +17,6 @@ use crate::utils::{ensure_file_exists, read_file_to_buffer};
 use crate::viewer::LogEntry;
 
 use tokio::sync::mpsc::Sender;
-
-// logger.rs
-
-pub async fn monitor_logs(tx: Sender<LogEntry>) {
-    let example_logs = vec![
-        LogEntry {
-            timestamp: 1616181405,
-            log_type: "CRITICAL".to_string(),
-            priority: "high".to_string(),
-            message: "Critical failure in network connection.".to_string(),
-            telegram_notification: Some(true), // Envolvendo em Some
-        },
-    ];
-
-    for log in example_logs {
-        if let Some(true) = log.telegram_notification {
-            if let Err(err) = send_telegram_alert(&log.message).await {
-                eprintln!("Error sending alert to Telegram: {}", err);
-            }
-        }
-        
-        tx.send(log).await.unwrap();
-        tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
-    }
-}
-
-
-
-// Function that monitors system log for updates and filters relevant logs for upload
-// logger.rs
 
 pub async fn monitor_logs_and_create_json(
     log_file_path: &str,
