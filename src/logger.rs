@@ -3,9 +3,8 @@ use google_drive3::api::File;
 use google_drive3::DriveHub;
 use hyper_tls::HttpsConnector;
 use hyper_util::client::legacy::connect::HttpConnector;
-use reqwest::Client;
+use inotify::{EventMask, Inotify, WatchMask};
 use serde_json::{json, Value};
-use std::env;
 use std::fs::{self, File as StdFile, OpenOptions};
 use std::io::Write;
 use std::io::{self, BufRead, BufReader, Cursor, Read};
@@ -15,64 +14,102 @@ use tokio::time::{self, Duration};
 
 use crate::notifier::send_telegram_alert;
 use crate::utils::{ensure_file_exists, read_file_to_buffer};
+use crate::viewer::LogEntry;
+
+use tokio::sync::mpsc::Sender;
+
+// logger.rs
+
+pub async fn monitor_logs(tx: Sender<LogEntry>) {
+    let example_logs = vec![
+        LogEntry {
+            timestamp: 1616181405,
+            log_type: "CRITICAL".to_string(),
+            priority: "high".to_string(),
+            message: "Critical failure in network connection.".to_string(),
+            telegram_notification: Some(true), // Envolvendo em Some
+        },
+    ];
+
+    for log in example_logs {
+        if let Some(true) = log.telegram_notification {
+            if let Err(err) = send_telegram_alert(&log.message).await {
+                eprintln!("Error sending alert to Telegram: {}", err);
+            }
+        }
+        
+        tx.send(log).await.unwrap();
+        tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
+    }
+}
+
 
 
 // Function that monitors system log for updates and filters relevant logs for upload
-pub async fn monitor_and_log_to_json(
+// logger.rs
+
+pub async fn monitor_logs_and_create_json(
     log_file_path: &str,
     hub: &DriveHub<HttpsConnector<HttpConnector>>,
+    tx: Sender<LogEntry>,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    // Initialize file monitoring with inotify
-    let mut inotify = inotify::Inotify::init()?;
-    inotify.add_watch("/var/log/syslog", inotify::WatchMask::MODIFY)?;
+    let mut inotify = Inotify::init()?;
+    inotify.add_watch("/var/log/syslog", WatchMask::MODIFY)?;
 
-    // Open log file for appending filtered logs
     let mut output_file = OpenOptions::new()
         .append(true)
         .create(true)
         .open(log_file_path)?;
 
     loop {
-        // Buffer to read inotify events
         let mut buffer = [0; 1024];
         let events = inotify.read_events_blocking(&mut buffer)?;
 
-        // Iterate over events
         for event in events {
-            // If the file was modified, process it
-            if event.mask.contains(inotify::EventMask::MODIFY) {
+            if event.mask.contains(EventMask::MODIFY) {
                 let file = StdFile::open("/var/log/syslog")?;
                 let reader = BufReader::new(file);
 
-                // Filter logs and convert to JSON format
-                let mut filtered_logs = Vec::new();
                 for line in reader.lines() {
                     if let Ok(line) = line {
                         if let Some(log_json) = log_to_json_and_alert(&line).await {
-                            filtered_logs.push(log_json);
+                            if log_json["priority"] == "high" {
+                                writeln!(output_file, "{}", log_json.to_string())?;
+                                output_file.flush()?;
+
+                                let log_entry = LogEntry {
+                                    timestamp: log_json["timestamp"].as_u64().unwrap(),
+                                    log_type: log_json["type"].as_str().unwrap().to_string(),
+                                    priority: log_json["priority"].as_str().unwrap().to_string(),
+                                    message: log_json["message"].as_str().unwrap().to_string(),
+                                    telegram_notification: Some(true),
+                                };
+
+                                // Envia o log para o canal
+                                tx.send(log_entry.clone()).await.unwrap(); // Clonando antes de mover
+
+                                // Agora, podemos usar o log_entry original
+                                if let Some(true) = log_entry.telegram_notification {
+                                    if let Err(err) = send_telegram_alert(&log_entry.message).await {
+                                        eprintln!("Error sending alert to Telegram: {}", err);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
 
-                // If filtered logs exist, write them to the output file and upload
-                if !filtered_logs.is_empty() {
-                    for log in &filtered_logs {
-                        writeln!(output_file, "{}", log.to_string())?;
-                    }
-                    output_file.flush()?;
-
-                    // Upload the updated log file to Google Drive
-                    if let Err(e) = upload_file(hub, log_file_path).await {
-                        eprintln!("Error uploading file: {}", e);
-                    }
+                if let Err(e) = upload_file(hub, log_file_path).await {
+                    eprintln!("Erro ao enviar arquivo: {}", e);
                 }
             }
         }
-
-        // Sleep to avoid high CPU usage
-        time::sleep(std::time::Duration::from_millis(100)).await;
+        time::sleep(Duration::from_millis(100)).await;
     }
 }
+
+
+
 
 // Function that converts the log line to JSON and sends alerts if necessary
 pub async fn log_to_json_and_alert(line: &str) -> Option<serde_json::Value> {

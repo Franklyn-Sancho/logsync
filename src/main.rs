@@ -1,22 +1,18 @@
-use std::env;
-use dotenv::dotenv;
-
-use auth::authenticate;
-use logger::monitor_and_log_to_json;
-use serde_json::json;
-use utils::ensure_file_exists;
-
 mod auth;
 mod logger;
 mod notifier;
 mod utils;
+mod viewer;
 
-use crate::notifier::send_test_message;
+use tokio::sync::mpsc;
 
 #[tokio::main]
 async fn main() {
-    // Attempt to authenticate and obtain the drive hub
-    let drive_hub = match authenticate().await {
+    // Define the maximum number of logs to be stored
+    let max_logs = 1000; // This can be any value you'd like or passed dynamically
+
+    // Inicializa a autenticação do Google Drive
+    let drive_hub = match auth::authenticate().await {
         Ok(hub) => hub,
         Err(e) => {
             eprintln!("Authentication failed: {}", e);
@@ -24,23 +20,31 @@ async fn main() {
         }
     };
 
-    // Path to the filtered logs JSON file
+    // Caminho do arquivo JSON onde os logs serão salvos
     let log_file_path = "filtered_logs.json";
 
-    // Ensure the log file exists
-    if let Err(e) = ensure_file_exists(&log_file_path) {
+    // Verifica se o arquivo de log existe, caso contrário, cria-o
+    if let Err(e) = utils::ensure_file_exists(&log_file_path) {
         eprintln!("Error creating log file: {}", e);
         return;
     }
 
-    // Send a test message to verify the Telegram bot functionality
-    if let Err(e) = send_test_message().await {
-        eprintln!("Error sending test message: {}", e);
-    }
+    // Cria um canal para enviar logs filtrados para exibição
+    let (tx, rx) = mpsc::channel(100);
 
-    // Start monitoring the log and upload filtered logs
-    if let Err(e) = monitor_and_log_to_json(log_file_path, &drive_hub).await {
-        eprintln!("Error during log monitoring and upload: {}", e);
-    }
+    // Inicia a monitoria dos logs em segundo plano
+    let _monitor_task = tokio::spawn({
+        let drive_hub = drive_hub.clone(); // Clona o hub para uso dentro da task
+        async move {
+            if let Err(e) =
+                logger::monitor_logs_and_create_json(log_file_path, &drive_hub, tx).await
+            {
+                eprintln!("Error during log monitoring and upload: {}", e);
+            }
+        }
+    });
+
+    // Exibe os logs em tempo real no terminal interativo, passando a capacidade máxima de logs
+    viewer::start_interactive_viewer(rx, max_logs).await;
 }
 

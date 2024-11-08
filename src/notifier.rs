@@ -24,26 +24,17 @@ pub async fn send_test_message() -> Result<(), Box<dyn std::error::Error>> {
         .send()
         .await?;
 
-    // Confirm successful message sending
-    println!("Test message sent successfully.");
     Ok(())
 }
 
-pub async fn send_telegram_alert(message: &str) -> Result<(), Box<dyn std::error::Error>> {
-    // Load environment variables from .env file
+pub async fn send_telegram_alert(message: &str) -> Result<bool, Box<dyn std::error::Error>> {
     dotenv::dotenv().ok();
-
-    // Retrieve the Telegram API token and chat ID from environment variables
     let token = env::var("TELEGRAM_API_TOKEN").expect("TELEGRAM_API_TOKEN not set");
     let chat_id = env::var("TELEGRAM_CHAT_ID").expect("TELEGRAM_CHAT_ID not set");
 
-    // Construct the URL for sending the message to Telegram's API
     let url = format!("https://api.telegram.org/bot{}/sendMessage", token);
-
-    // Create a new HTTP client
     let client = reqwest::Client::new();
 
-    // Send the message via a POST request to Telegram API
     let response = client
         .post(&url)
         .json(&json!({"chat_id": chat_id, "text": message}))
@@ -53,11 +44,8 @@ pub async fn send_telegram_alert(message: &str) -> Result<(), Box<dyn std::error
     match response {
         Ok(res) => {
             if res.status().is_success() {
-                // Confirm that the message was successfully sent
-                println!("Alert message sent successfully!");
-                Ok(())
+                Ok(true)  // Retorna true se o envio foi bem-sucedido
             } else {
-                // Log error if the response status is not successful
                 eprintln!(
                     "Failed to send message to Telegram. Status: {}",
                     res.status()
@@ -69,9 +57,9 @@ pub async fn send_telegram_alert(message: &str) -> Result<(), Box<dyn std::error
             }
         }
         Err(err) => {
-            // Log error if the request failed
             eprintln!("Request error: {}", err);
             Err(Box::new(err))
         }
     }
 }
+
