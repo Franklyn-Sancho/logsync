@@ -16,7 +16,7 @@ use tui::{
 
 use tokio::sync::mpsc::Receiver;
 
-use crate::logger;
+use crate::{logger, utils};
 
 #[derive(Clone, Debug)]
 /// Represents a log entry with additional information.
@@ -124,30 +124,29 @@ fn ui<B: Backend>(
         )
         .split(f.size());
 
-    // Build table rows with logs
-    let rows = logs.iter().enumerate().map(|(i, log)| {
-        let cells = vec![
-            Cell::from(log.timestamp.to_string()),
-            Cell::from(log.log_type.clone()).style(get_color(&log.priority)),
-            Cell::from(log.priority.clone()).style(get_color(&log.priority)),
-            Cell::from(log.message.clone()),
-            // Display Telegram notification status
-            Cell::from(match log.telegram_notification {
-                Some(true) => "Alert Sent",
-                _ => "Not Sent",
-            }),
-        ];
-        let row = Row::new(cells);
-        if Some(i) == selected_log {
-            row.style(
-                Style::default()
-                    .fg(Color::Yellow)
-                    .add_modifier(Modifier::BOLD),
-            )
-        } else {
-            row
-        }
-    });
+        let rows = logs.iter().enumerate().map(|(i, log)| {
+            let cells = vec![
+                Cell::from(utils::format_timestamp(log.timestamp)),  // Usando a função format_timestamp
+                Cell::from(log.log_type.clone()).style(get_color(&log.priority)),
+                Cell::from(log.priority.clone()).style(get_color(&log.priority)),
+                Cell::from(log.message.clone()),
+                Cell::from(match log.telegram_notification {
+                    Some(true) => "Alerta Enviado",
+                    _ => "Não Enviado",
+                }),
+            ];
+            let row = Row::new(cells);
+            if Some(i) == selected_log {
+                row.style(
+                    Style::default()
+                        .fg(Color::Yellow)
+                        .add_modifier(Modifier::BOLD),
+                )
+            } else {
+                row
+            }
+        });
+        
 
     let table = Table::new(rows)
         .header(

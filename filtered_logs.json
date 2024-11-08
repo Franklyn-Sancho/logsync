@@ -764,3 +764,42 @@
 {"message":"Nov  6 19:31:32 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731099011,"type":"CRITICAL"}
 {"message":"Nov  6 19:35:57 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731099013,"type":"CRITICAL"}
 {"message":"Nov  6 20:13:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731099014,"type":"CRITICAL"}
+{"message":"Nov  6 17:22:36 franklyn-desktop franklyn: CRITICAL: Test critical message for JSON logging","priority":"high","timestamp":1731100484,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100486,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test warning message for JSON logging","priority":"high","timestamp":1731100488,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:34 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100489,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:58 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100491,"type":"CRITICAL"}
+{"message":"Nov  6 18:45:35 franklyn-desktop franklyn: CRITICAL ERROR: Test error message for JSON logging","priority":"high","timestamp":1731100492,"type":"CRITICAL"}
+{"message":"Nov  6 18:48:18 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100494,"type":"CRITICAL"}
+{"message":"Nov  6 19:04:17 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100496,"type":"CRITICAL"}
+{"message":"Nov  6 19:08:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100497,"type":"CRITICAL"}
+{"message":"Nov  6 19:10:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100499,"type":"CRITICAL"}
+{"message":"Nov  6 19:31:32 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100500,"type":"CRITICAL"}
+{"message":"Nov  6 19:35:57 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100502,"type":"CRITICAL"}
+{"message":"Nov  6 20:13:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100504,"type":"CRITICAL"}
+{"message":"Nov  6 17:22:36 franklyn-desktop franklyn: CRITICAL: Test critical message for JSON logging","priority":"high","timestamp":1731100508,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100509,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test warning message for JSON logging","priority":"high","timestamp":1731100511,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:34 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100512,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:58 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100514,"type":"CRITICAL"}
+{"message":"Nov  6 18:45:35 franklyn-desktop franklyn: CRITICAL ERROR: Test error message for JSON logging","priority":"high","timestamp":1731100516,"type":"CRITICAL"}
+{"message":"Nov  6 18:48:18 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100517,"type":"CRITICAL"}
+{"message":"Nov  6 19:04:17 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100519,"type":"CRITICAL"}
+{"message":"Nov  6 19:08:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100521,"type":"CRITICAL"}
+{"message":"Nov  6 19:10:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100522,"type":"CRITICAL"}
+{"message":"Nov  6 19:31:32 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100524,"type":"CRITICAL"}
+{"message":"Nov  6 19:35:57 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100526,"type":"CRITICAL"}
+{"message":"Nov  6 20:13:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100527,"type":"CRITICAL"}
+{"message":"Nov  6 17:22:36 franklyn-desktop franklyn: CRITICAL: Test critical message for JSON logging","priority":"high","timestamp":1731100622,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100624,"type":"CRITICAL"}
+{"message":"Nov  6 18:22:56 franklyn-desktop franklyn: CRITICAL: Test warning message for JSON logging","priority":"high","timestamp":1731100625,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:34 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100627,"type":"CRITICAL"}
+{"message":"Nov  6 18:44:58 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100629,"type":"CRITICAL"}
+{"message":"Nov  6 18:45:35 franklyn-desktop franklyn: CRITICAL ERROR: Test error message for JSON logging","priority":"high","timestamp":1731100630,"type":"CRITICAL"}
+{"message":"Nov  6 18:48:18 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100632,"type":"CRITICAL"}
+{"message":"Nov  6 19:04:17 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100633,"type":"CRITICAL"}
+{"message":"Nov  6 19:08:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100635,"type":"CRITICAL"}
+{"message":"Nov  6 19:10:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100637,"type":"CRITICAL"}
+{"message":"Nov  6 19:31:32 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100638,"type":"CRITICAL"}
+{"message":"Nov  6 19:35:57 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100640,"type":"CRITICAL"}
+{"message":"Nov  6 20:13:46 franklyn-desktop franklyn: CRITICAL: Test error message for JSON logging","priority":"high","timestamp":1731100641,"type":"CRITICAL"}
