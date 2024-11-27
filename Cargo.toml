@@ -10,7 +10,7 @@ inotify = "0.7"  # Verifique por atualizações na versão
 yup-oauth2 = "11.0.0"
 google-drive3 = "6.0.0"
 tokio = { version = "1", features = ["full"] }
-reqwest = { version = "0.12", features = ["json"] }
+reqwest = { version = "0.12", features = ["json", "multipart"] }
 hyper = { version = "1.5.0", features = ["full"] }
 hyper-tls = "0.6.0"
 hyper-util = { version = "0.1.10", features = ["full"] }
@@ -20,4 +20,7 @@ colored = "2.0"
 crossterm = "0.26"
 tui = "0.19.0"
 chrono = "0.4"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+anyhow = "1.0"
 

@@ -1,35 +1,116 @@
-
 use google_drive3::api::File;
 use google_drive3::DriveHub;
 use hyper_tls::HttpsConnector;
 use hyper_util::client::legacy::connect::HttpConnector;
 use inotify::{EventMask, Inotify, WatchMask};
-use serde_json::json;
+use serde_json::{json, Value};
+use std::collections::HashSet;
 use std::fs::{File as StdFile, OpenOptions};
-use std::io::Write;
 use std::io::{BufRead, BufReader};
+use std::io::{BufWriter, Write};
 use std::path::Path;
-use std::time::{SystemTime, UNIX_EPOCH};
-use tokio::time::{self, Duration};
-
-use crate::notifier::send_telegram_alert;
-use crate::utils::{ensure_file_exists, read_file_to_buffer};
-use crate::viewer::LogEntry;
-
+use std::sync::{Arc, Mutex};
 use tokio::sync::mpsc::Sender;
+
+use tokio::time::Duration;
+
+use crate::driver_uploader::upload_file;
+use crate::notifier::{handle_telegram_alert, send_html_report_to_telegram, send_log_to_channel, send_telegram_alert};
+use crate::parser::parse_log_line;
+use crate::types::LogEntry;
+
+
+
+async fn process_log_line(
+    line: &str,
+    log_file_path: &str,
+    tx: &Sender<LogEntry>,
+    processed_errors: &Arc<Mutex<HashSet<String>>>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let line_string = line.to_string();
+
+    let mut should_process = false;
+    {
+        let mut guard = processed_errors.lock().unwrap();
+        if !guard.contains(&line_string) {
+            guard.insert(line_string.clone());
+            should_process = true;
+        }
+    }
+
+    if should_process {
+        if let Some(log_json) = parse_log_line(line) {
+            println!("Filtered log: {}", log_json);
+
+            if log_json["priority"] == "high" {
+                let log_entry = create_log_entry(&log_json)?;
+
+                update_log_file(log_file_path, &log_entry)?;
+
+                send_log_to_channel(tx, log_entry.clone()).await?;
+
+                handle_telegram_alert(&log_entry).await?;
+            }
+        }
+    }
+    Ok(())
+}
+
+fn create_log_entry(log_json: &Value) -> Result<LogEntry, Box<dyn std::error::Error>> {
+    Ok(LogEntry {
+        timestamp: log_json["timestamp"].as_u64().ok_or("Invalid timestamp")?,
+        log_type: log_json["type"].as_str().ok_or("Invalid type")?.to_string(),
+        priority: log_json["priority"]
+            .as_str()
+            .ok_or("Invalid priority")?
+            .to_string(),
+        message: log_json["message"]
+            .as_str()
+            .ok_or("Invalid message")?
+            .to_string(),
+        telegram_notification: Some(true),
+    })
+}
+
+fn update_log_file(
+    log_file_path: &str,
+    log_entry: &LogEntry,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let mut logs: Vec<LogEntry> = if Path::new(log_file_path).exists() {
+        let file = StdFile::open(log_file_path)?;
+        let reader = BufReader::new(file);
+        serde_json::from_reader(reader).unwrap_or_else(|_| vec![])
+    } else {
+        Vec::new()
+    };
+
+    logs.push(log_entry.clone());
+
+    let mut file = OpenOptions::new()
+        .write(true)
+        .truncate(true)
+        .create(true)
+        .open(log_file_path)?;
+
+    serde_json::to_writer_pretty(&mut file, &logs)
+        .map_err(|e| format!("Error writing to log file: {}", e))?;
+
+    println!("Log entry written successfully.");
+    Ok(())
+}
+
+
 
 pub async fn monitor_logs_and_create_json(
     log_file_path: &str,
     hub: &DriveHub<HttpsConnector<HttpConnector>>,
     tx: Sender<LogEntry>,
+    processed_errors: Arc<Mutex<HashSet<String>>>,
 ) -> Result<(), Box<dyn std::error::Error>> {
     let mut inotify = Inotify::init()?;
-    inotify.add_watch("/var/log/syslog", WatchMask::MODIFY)?;
+    inotify.add_watch("./test_log.txt", WatchMask::MODIFY)?;
 
-    let mut output_file = OpenOptions::new()
-        .append(true)
-        .create(true)
-        .open(log_file_path)?;
+    println!("Monitoring ./test_log.txt for changes...");
 
     loop {
         let mut buffer = [0; 1024];
@@ -37,34 +118,17 @@ pub async fn monitor_logs_and_create_json(
 
         for event in events {
             if event.mask.contains(EventMask::MODIFY) {
-                let file = StdFile::open("/var/log/syslog")?;
+                let file = StdFile::open("./test_log.txt")?;
                 let reader = BufReader::new(file);
 
                 for line in reader.lines() {
                     if let Ok(line) = line {
-                        if let Some(log_json) = log_to_json_and_alert(&line).await {
-                            if log_json["priority"] == "high" {
-                                writeln!(output_file, "{}", log_json.to_string())?;
-                                output_file.flush()?;
+                        println!("Processing line: {}", line);
 
-                                let log_entry = LogEntry {
-                                    timestamp: log_json["timestamp"].as_u64().unwrap(),
-                                    log_type: log_json["type"].as_str().unwrap().to_string(),
-                                    priority: log_json["priority"].as_str().unwrap().to_string(),
-                                    message: log_json["message"].as_str().unwrap().to_string(),
-                                    telegram_notification: Some(true),
-                                };
-
-                                // Envia o log para o canal
-                                tx.send(log_entry.clone()).await.unwrap(); // Clonando antes de mover
-
-                                // Agora, podemos usar o log_entry original
-                                if let Some(true) = log_entry.telegram_notification {
-                                    if let Err(err) = send_telegram_alert(&log_entry.message).await {
-                                        eprintln!("Error sending alert to Telegram: {}", err);
-                                    }
-                                }
-                            }
+                        if let Err(e) =
+                            process_log_line(&line, log_file_path, &tx, &processed_errors).await
+                        {
+                            eprintln!("Error processing log line: {}", e);
                         }
                     }
                 }
@@ -74,76 +138,7 @@ pub async fn monitor_logs_and_create_json(
                 }
             }
         }
-        time::sleep(Duration::from_millis(100)).await;
+
+        tokio::time::sleep(Duration::from_millis(100)).await;
     }
-}
-
-
-
-
-// Function that converts the log line to JSON and sends alerts if necessary
-pub async fn log_to_json_and_alert(line: &str) -> Option<serde_json::Value> {
-    // Determine log type and priority based on the content
-    let (log_type, priority) = if line.contains("CRITICAL") {
-        ("CRITICAL", "high")
-    } else if line.contains("ERROR") {
-        ("ERROR", "medium")
-    } else if line.contains("WARN") {
-        ("WARNING", "low")
-    } else {
-        return None;
-    };
-
-    // Send a critical error alert if applicable
-    if log_type == "CRITICAL" {
-        let message = format!("Critical Error Detected: {}", line);
-        match send_telegram_alert(&message).await {
-            Ok(_) => println!("Critical error alert sent successfully!"),
-            Err(e) => eprintln!("Error sending critical error alert: {}", e),
-        }
-    }
-
-    // Return the log in JSON format
-    Some(json!({
-        "timestamp": SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs(),
-        "type": log_type,
-        "message": line.trim(),
-        "priority": priority
-    }))
-}
-
-// Function that uploads the log file to Google Drive
-pub async fn upload_file(
-    hub: &DriveHub<HttpsConnector<HttpConnector>>,
-    file_path: &str,
-) -> Result<File, Box<dyn std::error::Error>> {
-    // Ensure the file exists
-    ensure_file_exists(file_path)?;
-
-    // Read the file content into a buffer
-    let buffer = read_file_to_buffer(file_path)?;
-    let cursor = std::io::Cursor::new(buffer);
-    let mime_type = mime_guess::from_path(file_path).first_or_octet_stream();
-
-    // Prepare metadata for the Google Drive file
-    let drive_file = File {
-        name: Some(
-            Path::new(file_path)
-                .file_name()
-                .unwrap()
-                .to_string_lossy()
-                .to_string(),
-        ),
-        mime_type: Some(mime_type.to_string()),
-        ..Default::default()
-    };
-
-    // Upload the file to Google Drive
-    let (_, uploaded_file) = hub
-        .files()
-        .create(drive_file)
-        .upload(cursor, mime_type)
-        .await?;
-
-    Ok(uploaded_file)
 }

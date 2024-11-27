@@ -1,10 +1,10 @@
 use crossterm::{
     event::{self, Event, KeyCode},
     execute,
-    terminal::{enable_raw_mode, EnterAlternateScreen},
+    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
 };
 use std::{collections::VecDeque, io, time::Duration};
-use tokio::sync::mpsc;
+use tokio::sync::mpsc::{self, error::TryRecvError};
 use tui::{
     backend::{Backend, CrosstermBackend},
     layout::{Constraint, Direction, Layout},
@@ -16,35 +16,35 @@ use tui::{
 
 use tokio::sync::mpsc::Receiver;
 
-use crate::utils;
-
-#[derive(Clone, Debug)]
-/// Represents a log entry with additional information.
-pub struct LogEntry {
-    pub timestamp: u64,
-    pub log_type: String,
-    pub priority: String,
-    pub message: String,
-    pub telegram_notification: Option<bool>, // Status of the Telegram alert notification
-}
+use crate::{types::LogEntry, utils};
 
 /// Starts an interactive viewer that displays logs in the terminal.
-pub async fn start_interactive_viewer(mut rx: Receiver<LogEntry>, max_logs: usize) {
-    enable_raw_mode().unwrap(); // Enable raw mode for terminal input handling
+pub async fn start_interactive_viewer(mut rx: Receiver<LogEntry>, max_logs: usize) -> Result<(), Box<dyn std::error::Error>> {
+    enable_raw_mode()?;
     let mut stdout = io::stdout();
-    execute!(stdout, EnterAlternateScreen).unwrap(); // Switch to alternate screen buffer
+    execute!(stdout, EnterAlternateScreen)?;
     let backend = CrosstermBackend::new(stdout);
-    let mut terminal = Terminal::new(backend).unwrap(); // Create terminal object
+    let mut terminal = Terminal::new(backend)?;
+
+    println!("Viewer started, waiting for logs..."); // Debug log
 
     loop {
         // Clear the screen on each render to ensure proper layout
-        terminal.clear().unwrap();
+        terminal.clear()?;
 
         // Call run_app to display logs
         if let Err(e) = run_app(&mut terminal, &mut rx, max_logs).await {
-            eprintln!("Error: {:?}", e);
+            eprintln!("Error in viewer: {:?}", e);
+            break;
         }
     }
+
+    // Cleanup
+    disable_raw_mode()?;
+    execute!(terminal.backend_mut(), LeaveAlternateScreen)?;
+    terminal.show_cursor()?;
+
+    Ok(())
 }
 
 /// Runs the application to display logs and handle user input.
@@ -53,51 +53,64 @@ async fn run_app<B: Backend>(
     rx: &mut mpsc::Receiver<LogEntry>,
     max_logs: usize,
 ) -> io::Result<()> {
-    let mut logs = VecDeque::with_capacity(max_logs); // Using VecDeque to store logs
-    let mut selected_log = Some(0);
+    let mut logs = VecDeque::with_capacity(max_logs);
     let mut debug_messages = Vec::new();
-    let mut scroll_offset = 0;  // Variable to control scroll position
+    let mut scroll_offset = 0;
+    let mut selected_log = 0;
 
     loop {
         // Process received logs
-        while let Ok(log) = rx.try_recv() {
-            if log.priority == "high" {
-                // Add log to the deque and remove the oldest if the limit is reached
+        match rx.try_recv() {
+            Ok(log) => {
+                println!("Received log: {:?}", log); // Debug log
                 if logs.len() == max_logs {
-                    logs.pop_front(); // Remove the oldest log
+                    logs.pop_front();
                 }
-                logs.push_back(log.clone()); // Add the new log
-                debug_messages.push(format!(
-                    "Log added: {} - {}",
-                    log.timestamp, log.message
-                ));
-
-                // Limit the number of debug messages to avoid unbounded growth
+                logs.push_back(log);
+                debug_messages.push(format!("New log received at {}", chrono::Local::now()));
                 if debug_messages.len() > 10 {
                     debug_messages.remove(0);
                 }
             }
+            Err(TryRecvError::Empty) => {
+                // Channel is empty, continue normally
+            }
+            Err(TryRecvError::Disconnected) => {
+                debug_messages.push("Channel disconnected!".to_string());
+            }
         }
 
-        // Draw the interface with logs, selected log, and debug messages
-        terminal.draw(|f| ui(f, &logs.as_slices().0, selected_log, &debug_messages, scroll_offset))?;
+        // Atualiza a posição máxima permitida para `selected_log`
+        let max_index = logs.len().saturating_sub(1);
+        selected_log = selected_log.min(max_index);
 
-        // Capture keyboard events
+        // Renderiza a interface
+        terminal.draw(|f| {
+            ui(f, &logs.as_slices().0, Some(selected_log), &debug_messages, scroll_offset)
+        })?;
+
+        // Captura eventos do teclado
         if event::poll(Duration::from_millis(100))? {
             if let Event::Key(key) = event::read()? {
                 match key.code {
-                    KeyCode::Char('q') => return Ok(()), // Close the program with 'q'
-                    KeyCode::Char('c') if key.modifiers == event::KeyModifiers::CONTROL => return Ok(()), // Close with Ctrl+C
+                    KeyCode::Char('q') => return Ok(()), // Sai com 'q'
+                    KeyCode::Char('c') if key.modifiers == event::KeyModifiers::CONTROL => return Ok(()), // Sai com Ctrl+C
                     KeyCode::Down => {
-                        if logs.len() > 0 {
-                            // Scroll down control
-                            scroll_offset = (scroll_offset + 1).min(logs.len() - 1);
+                        if selected_log < max_index {
+                            selected_log += 1; // Avança para o próximo log
+                        }
+                        // Ajusta a rolagem caso o cursor desça além da área visível
+                        if selected_log >= scroll_offset + 10 {
+                            scroll_offset += 1;
                         }
                     }
                     KeyCode::Up => {
-                        if scroll_offset > 0 {
-                            // Scroll up control
-                            scroll_offset -= 1;
+                        if selected_log > 0 {
+                            selected_log -= 1; // Retorna ao log anterior
+                        }
+                        // Ajusta a rolagem caso o cursor suba além da área visível
+                        if selected_log < scroll_offset {
+                            scroll_offset = scroll_offset.saturating_sub(1);
                         }
                     }
                     _ => {}
@@ -106,6 +119,8 @@ async fn run_app<B: Backend>(
         }
     }
 }
+
+
 
 /// UI rendering function to display logs and selected log details.
 fn ui<B: Backend>(

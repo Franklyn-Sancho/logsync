@@ -1,0 +1,52 @@
+CRITICAL ERROR: Simulated critical error
+ERROR: Another simulated error
+ERROR: Another simulated error
+CRITICAL: Simulated critical error
+CRITICAL ERROR: Simulated critical error
+ERROR: Another simulated error
+CRITICAL: Simulated critical error
+CRITICAL: Simulated critical error
+CRITICAL: Simulated critical error
+CRITICAL: Simulated critical error
+CRITICAL: Simulated critical error
+CRITICAL: Simulated critical error with JSON
+CRITICAL: Simulated critical error with JSON
+CRITICAL: Simulated critical error with JSON
+CRITICAL: Simulated critical error with JSON
+CRITICAL: Simulated critical error with JSON
+CRITICAL: Simulated critical error
+ERROR: Simulated critical error
+ERROR: Again error again error
+CRITICAL: Again error again error
+CRITICAL: simulated again
+ERROR: simulated again
+CRITICAL: simulated again
+CRITICAL: error error error error
+ERROR: error error error error
+CRITICAL: critical critical critical critical
+CRITICAL: critical critical critical critical
+ERROR: you need try this error again
+ERROR: you need try this error again
+ERROR: this error again? oh no!
+CRITICAL: critical critical critical critical
+ERROR: this error means that your computer is horrible
+ERROR: this error means that your computer is horrible
+CRITICAL: critical critical critical critical
+ERROR: you need to restart your system!
+CRITICAL: critical critical critical critical
+CRITICAL: critical critical critical critical
+ERROR: you need try again for to try
+ERROR: you need try again for to try
+ERROR: let's to try it again
+CRITICAL: let's to try it again
+CRITICAL: let's to try it again
+CRITICAL: let's to try it again
+CRITICAL: you will se anything
+CRITICAL: you will se anything
+CRITICAL: you will se anything
+CRITICAL: lets to try anything again
+CRITICAL: lets to try anything again
+CRITICAL: lets to try anything again
+CRITICAL: lets to try anything again
+CRITICAL: lets to try anything again
+CRITICAL: lets to try anything again
